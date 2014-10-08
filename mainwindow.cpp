@@ -7,13 +7,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    charactersNumber = 0;
+    characterNumber = 0;
     PCOL = new QVBoxLayout();
     PCOL->setMargin(0);
     PCOL->setContentsMargins(0,0,0,0);
     ui->PCOC->setLayout(PCOL);
     NPCOL = new QVBoxLayout(ui->NPCOC);
     ui->charactersTab->setCurrentIndex(0);
+    ui->charactersTab->setTabsClosable(true);
 
 }
 
@@ -22,15 +23,37 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::decreaseCharacterNumber()
+{
+    characterNumber--;
+}
+
+void MainWindow::setWorldActive()
+{
+        ui->charactersTab->setCurrentIndex(0);
+}
+
 void MainWindow::on_charactersTab_tabBarClicked(int index)
 {
-    if (index==charactersNumber+1)
+    if (index==characterNumber+1)
     {
-        charactersNumber++;
+        characterNumber++;
         QLabel *overview = new QLabel();
         PCOL->addWidget(overview,0, Qt::AlignTop);
-        overview->setText("Unnamed character, unknown");
-        ui->charactersTab->insertTab(charactersNumber,new charactertab(ui->charactersTab,PCOL,NPCOL,overview,index),"Unnamed character");
-        ui->charactersTab->setCurrentIndex(charactersNumber);
+        overview->setText("Name, description");
+        ui->charactersTab->insertTab(characterNumber,new charactertab(ui->charactersTab,PCOL,NPCOL,overview,index,this),"Name");
+        ui->charactersTab->setCurrentIndex(characterNumber);
     }
+}
+
+
+void MainWindow::on_charactersTab_tabCloseRequested(int index)
+{
+    if (index != 0 && index != characterNumber +1)
+        delete ui->charactersTab->widget(index);
+}
+
+void MainWindow::on_name_textChanged(const QString &arg1)
+{
+    this->setWindowTitle("Hello, "+arg1+"!");
 }

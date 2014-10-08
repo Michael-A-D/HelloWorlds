@@ -9,7 +9,7 @@ charactertab::charactertab(QWidget *parent) :
     ui->setupUi(this);
 }
 
-charactertab::charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *NPCOL, QLabel *overview, int index) :
+charactertab::charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *NPCOL, QLabel *overview, int index, MainWindow *main) :
     QDialog(parent),
     ui(new Ui::charactertab)
 {
@@ -19,6 +19,7 @@ charactertab::charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *N
     this->NPCOL = NPCOL;
     this->overview = overview;
     this->index = index;   
+    this->main = main;
     attributeL = new QVBoxLayout();
     attributeL->setMargin(0);
     attributeL->setContentsMargins(0,0,0,0);
@@ -28,15 +29,17 @@ charactertab::charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *N
 charactertab::~charactertab()
 {
     delete ui;
+    delete this->overview;
+    main->decreaseCharacterNumber();
 }
 
-void charactertab::on_lineEdit_textChanged(const QString &arg1)
+void charactertab::on_name_textChanged(const QString &arg1)
 {
     this->parentTab->setTabText(index,arg1);
-    this->overview->setText(arg1+", "+ui->lineEdit_2->text());
+    this->overview->setText(arg1+", "+ui->descritpion->text());
 }
 
-void charactertab::on_checkBox_toggled(bool checked)
+void charactertab::on_npc_toggled(bool checked)
 {
     if (checked)
     {
@@ -48,15 +51,15 @@ void charactertab::on_checkBox_toggled(bool checked)
     }
 }
 
-void charactertab::on_lineEdit_2_textChanged(const QString &arg1)
-{
-    this->overview->setText(ui->lineEdit->text()+", "+arg1);
-}
-
 void charactertab::on_pushButton_clicked()
 {
     attributeForm *attribute = new attributeForm();
     //QLabel *attribute = new QLabel(); attribute->setText("toto");
     attribute->setFixedHeight(100);
     attributeL->addWidget(attribute);
+}
+
+void charactertab::on_descritpion_textChanged(const QString &arg1)
+{
+    this->overview->setText(ui->name->text()+", "+arg1);
 }

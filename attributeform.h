@@ -2,6 +2,7 @@
 #define ATTRIBUTEFORM_H
 
 #include <QWidget>
+#include <QVBoxLayout>
 
 namespace Ui {
 class attributeForm;
@@ -15,8 +16,12 @@ public:
     explicit attributeForm(QWidget *parent = 0);
     ~attributeForm();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::attributeForm *ui;
+    QGridLayout *abilityL;
 };
 
 #endif // ATTRIBUTEFORM_H

@@ -15,15 +15,19 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void decreaseCharacterNumber();
+    void setWorldActive();
 
 private slots:
     void on_charactersTab_tabBarClicked(int index);
 
-    void on_charactersTab_currentChanged(int index);
+    void on_charactersTab_tabCloseRequested(int index);
+
+    void on_name_textChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;
-    int charactersNumber;
+    int characterNumber;
     QVBoxLayout *PCOL;
     QVBoxLayout *NPCOL;
 };
