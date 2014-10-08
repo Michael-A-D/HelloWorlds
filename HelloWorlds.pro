@@ -13,8 +13,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    charactertab.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    charactertab.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    charactertab.ui
