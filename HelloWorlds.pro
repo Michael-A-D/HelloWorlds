@@ -14,10 +14,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    charactertab.cpp
+    charactertab.cpp \
+    attributeform.cpp
 
 HEADERS  += mainwindow.h \
-    charactertab.h
+    charactertab.h \
+    attributeform.h
 
 FORMS    += mainwindow.ui \
-    charactertab.ui
+    charactertab.ui \
+    attributeform.ui

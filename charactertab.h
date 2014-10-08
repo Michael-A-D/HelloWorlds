@@ -23,6 +23,12 @@ public:
 private slots:
     void on_lineEdit_textChanged(const QString &arg1);
 
+    void on_checkBox_toggled(bool checked);
+
+    void on_lineEdit_2_textChanged(const QString &arg1);
+
+    void on_pushButton_clicked();
+
 private:
     Ui::charactertab *ui;
     QTabWidget* parentTab;
@@ -30,6 +36,7 @@ private:
     QVBoxLayout *PCOL;
     QVBoxLayout *NPCOL;
     int index;
+    QVBoxLayout *attributeL;
 };
 
 #endif // CHARACTERTAB_H
