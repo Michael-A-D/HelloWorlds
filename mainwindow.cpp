@@ -8,6 +8,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     charactersNumber = 0;
+    PCOL = new QVBoxLayout(ui->PCOC);
+    NPCOL = new QVBoxLayout(ui->NPCOC);
 }
 
 MainWindow::~MainWindow()
@@ -21,14 +23,9 @@ void MainWindow::on_charactersTab_tabBarClicked(int index)
     {
         charactersNumber++;
         QLabel *overview = new QLabel();
-
-        ui->gridLayout->addWidget(overview);
+        PCOL->addWidget(overview);
         overview->setText("Bob Morane");
-        ui->charactersTab->insertTab(charactersNumber,new charactertab(ui->charactersTab,ui->PCO,ui->NPCO,overview,index),"Bob Morane");
+        ui->charactersTab->insertTab(charactersNumber,new charactertab(ui->charactersTab,PCOL,NPCOL,overview,index),"Bob Morane");
+        ui->charactersTab->setCurrentIndex(charactersNumber);
     }
-}
-
-void MainWindow::on_charactersTab_currentChanged(int index)
-{
-
 }

@@ -8,14 +8,14 @@ charactertab::charactertab(QWidget *parent) :
     ui->setupUi(this);
 }
 
-charactertab::charactertab(QTabWidget *parent, QScrollArea *PCO, QScrollArea *NPCO, QLabel *overview, int index) :
+charactertab::charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *NPCOL, QLabel *overview, int index) :
     QDialog(parent),
     ui(new Ui::charactertab)
 {
     ui->setupUi(this);
     this->parentTab = parent;
-    this->PCO = PCO;
-    this->NPCO = NPCO;
+    this->PCOL = PCOL;
+    this->NPCOL = NPCOL;
     this->overview = overview;
     this->index = index;
 }

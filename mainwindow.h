@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QVBoxLayout>
 
 namespace Ui {
 class MainWindow;
@@ -23,6 +24,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     int charactersNumber;
+    QVBoxLayout *PCOL;
+    QVBoxLayout *NPCOL;
 };
 
 #endif // MAINWINDOW_H

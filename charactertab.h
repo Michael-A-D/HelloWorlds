@@ -5,6 +5,7 @@
 #include <QTabWidget>
 #include <QLabel>
 #include <QScrollArea>
+#include <QVBoxLayout>
 
 namespace Ui {
 class charactertab;
@@ -16,7 +17,7 @@ class charactertab : public QDialog
 
 public:
     explicit charactertab(QWidget *parent = 0);
-    charactertab(QTabWidget *parent, QScrollArea *PCO, QScrollArea *NPCO, QLabel *overview, int index);
+    charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *NPCOL, QLabel *overview, int index);
     ~charactertab();
 
 private slots:
@@ -26,8 +27,8 @@ private:
     Ui::charactertab *ui;
     QTabWidget* parentTab;
     QLabel* overview;
-    QScrollArea *PCO;
-    QScrollArea *NPCO;
+    QVBoxLayout *PCOL;
+    QVBoxLayout *NPCOL;
     int index;
 };
 
