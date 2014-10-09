@@ -12,6 +12,7 @@ attributeForm::attributeForm(QWidget *parent) :
     abilityL->setContentsMargins(0,0,0,0);
     ui->ability->setLayout(abilityL);
     this->ui->deleteButton->setFixedWidth(27);
+    this->ui->customValue->setEnabled(false);
 }
 
 attributeForm::~attributeForm()
@@ -30,4 +31,9 @@ void attributeForm::on_pushButton_clicked()
 void attributeForm::on_deleteButton_clicked()
 {
     delete this;
+}
+
+void attributeForm::on_customBox_toggled(bool checked)
+{
+        this->ui->customValue->setEnabled(checked);
 }

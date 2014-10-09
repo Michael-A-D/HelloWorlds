@@ -20,16 +20,6 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="2">
-    <widget class="QSpinBox" name="flatBox"/>
-   </item>
-   <item row="0" column="4">
-    <widget class="QLabel" name="score">
-     <property name="text">
-      <string>Score : 0</string>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="3">
     <widget class="QPushButton" name="pushButton">
      <property name="text">
@@ -51,7 +41,7 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="1" colspan="5">
+   <item row="2" column="1" colspan="5">
     <widget class="QScrollArea" name="scrollArea">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
@@ -68,11 +58,38 @@
         <x>0</x>
         <y>0</y>
         <width>905</width>
-        <height>303</height>
+        <height>270</height>
        </rect>
       </property>
      </widget>
     </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QSpinBox" name="flatBox"/>
+   </item>
+   <item row="0" column="4">
+    <widget class="QLabel" name="score">
+     <property name="text">
+      <string>Score : 0</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="3">
+    <widget class="QCheckBox" name="customBox">
+     <property name="text">
+      <string>Use custom cost:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QLabel" name="calculateCost">
+     <property name="text">
+      <string>Calculated cost: 0</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="4">
+    <widget class="QSpinBox" name="customValue"/>
    </item>
   </layout>
  </widget>

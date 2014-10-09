@@ -21,6 +21,8 @@ private slots:
 
     void on_deleteButton_clicked();
 
+    void on_customBox_toggled(bool checked);
+
 private:
     Ui::attributeForm *ui;
     QGridLayout *abilityL;
