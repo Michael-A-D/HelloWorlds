@@ -36,6 +36,7 @@ public:
     int dmg;
     int hpCost;
     int dmgCost;
+    QString avatar;
     QList<attributeC*> attributeList;
     int score();
     QString overview();

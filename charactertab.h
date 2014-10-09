@@ -22,6 +22,7 @@ public:
     charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *NPCOL, QLabel *overview, int index, MainWindow *main);
     ~charactertab();    
     void updateScore();
+    void resizeLayout();
     characterC* characterData;
 
 private slots:
@@ -40,6 +41,8 @@ private slots:
     void on_DMG_valueChanged(int arg1);
 
     void on_DMGCost_valueChanged(int arg1);
+
+    void on_setAvatar_clicked();
 
 private:
     Ui::charactertab *ui;

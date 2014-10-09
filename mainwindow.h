@@ -17,6 +17,8 @@ public:
     ~MainWindow();
     void decreaseCharacterNumber();
     void setWorldActive();
+    void resizeLayouts();
+    QString location;
 
 private slots:
     void on_charactersTab_tabBarClicked(int index);

@@ -116,7 +116,7 @@
    <item row="3" column="7">
     <widget class="QLabel" name="score">
      <property name="text">
-      <string>Score: 0</string>
+      <string>Score: 180</string>
      </property>
     </widget>
    </item>
@@ -128,16 +128,23 @@
     </widget>
    </item>
    <item row="0" column="7">
-    <widget class="QPushButton" name="avatar">
+    <widget class="QPushButton" name="setAvatar">
      <property name="text">
       <string>Set Avatar</string>
      </property>
     </widget>
    </item>
-   <item row="0" column="3" colspan="4">
+   <item row="0" column="3" colspan="3">
     <widget class="QLineEdit" name="descritpion">
      <property name="text">
-      <string>Description</string>
+      <string>description</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="6">
+    <widget class="QLabel" name="avatar">
+     <property name="text">
+      <string>avatar.png</string>
      </property>
     </widget>
    </item>

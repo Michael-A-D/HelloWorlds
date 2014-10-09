@@ -50,6 +50,9 @@ void attributeForm::on_pushButton_clicked()
         this->attributeData->cost = this->attributeData->calculatedCost();
     };
     this->updateCost();
+    this->updateScore();
+    this->parent->updateScore();
+    this->parent->resizeLayout();
 }
 void attributeForm::updateScore(){
     this->ui->score->setText("Score: "+QString::number(this->attributeData->score()));
@@ -71,11 +74,12 @@ void attributeForm::on_deleteButton_clicked()
 {
     this->parent->characterData->attributeList.removeOne(this->attributeData);
     this->parent->updateScore();
+    this->parent->resizeLayout();
     delete this;
 }
 
 void attributeForm::updateCost(){
-    this->ui->calculateCost->setText("Calculated cost: " + QString::number(this->attributeData->cost));
+    this->ui->calculateCost->setText("Calculated cost: " + QString::number(this->attributeData->calculatedCost()));
 }
 
 void attributeForm::on_customBox_toggled(bool checked)

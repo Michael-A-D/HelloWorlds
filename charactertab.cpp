@@ -1,6 +1,7 @@
 #include "charactertab.h"
 #include "ui_charactertab.h"
 #include "attributeform.h"
+#include "QFileDialog"
 
 charactertab::charactertab(QWidget *parent) :
     QDialog(parent),
@@ -27,15 +28,32 @@ charactertab::charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *N
     this->characterData = new characterC();
 }
 
+void charactertab::resizeLayout()
+{
+    int size = 0;
+    for(int i = 0; i<this->characterData->attributeList.length(); i++)
+    {
+        for(int j = 0; j<this->characterData->attributeList.at(i)->abilityList.length(); j++)
+        {
+            size += 40;
+        }
+        size += 140;
+    }
+    this->ui->attribute->setFixedHeight(size);
+}
+
 charactertab::~charactertab()
 {
     delete ui;
     delete this->overview;
     main->decreaseCharacterNumber();
+    main->resizeLayouts();
 }
 
-void charactertab::updateScore(){
+void charactertab::updateScore()
+{
     this->ui->score->setText("Score: "+QString::number(this->characterData->score()));
+    this->overview->setText(ui->name->text()+", "+ui->descritpion->text() + " ("+ QString::number(this->characterData->score())+")");
 }
 
 void charactertab::on_name_textChanged(const QString &arg1)
@@ -54,6 +72,7 @@ void charactertab::on_npc_toggled(bool checked)
     {
         this->PCOL->addWidget(this->overview,0, Qt::AlignTop);
     }
+    this->main->resizeLayouts();
 }
 
 void charactertab::on_pushButton_clicked()
@@ -63,6 +82,7 @@ void charactertab::on_pushButton_clicked()
     this->characterData->attributeList.insert(this->characterData->attributeList.size(),attributeData);
     attribute->setFixedHeight(100);
     attributeL->addWidget(attribute);
+    this->resizeLayout();
 }
 
 void charactertab::on_descritpion_textChanged(const QString &arg1)
@@ -92,4 +112,13 @@ void charactertab::on_DMGCost_valueChanged(int arg1)
 {
     this->characterData->dmgCost = arg1;
     this->updateScore();
+}
+
+void charactertab::on_setAvatar_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this,tr("Please select avatar"),this->main->location,tr("Files (*.*)"));
+    this->ui->avatar->setText(fileName.section("/",-1));
+    QStringRef* fileNameReg = new QStringRef(&fileName);
+    this->main->location = fileName.section("/",0,fileNameReg->count("/")-1);
+    this->characterData->avatar = fileName;
 }
