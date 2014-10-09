@@ -33,6 +33,14 @@ private slots:
 
     void on_descritpion_textChanged(const QString &arg1);
 
+    void on_HP_valueChanged(int arg1);
+
+    void on_HPCost_valueChanged(int arg1);
+
+    void on_DMG_valueChanged(int arg1);
+
+    void on_DMGCost_valueChanged(int arg1);
+
 private:
     Ui::charactertab *ui;
     QTabWidget* parentTab;

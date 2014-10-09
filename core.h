@@ -32,6 +32,10 @@ public:
     QString name;
     QString description;
     bool NPC;
+    int hp;
+    int dmg;
+    int hpCost;
+    int dmgCost;
     QList<attributeC*> attributeList;
     int score();
     QString overview();

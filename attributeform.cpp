@@ -88,6 +88,7 @@ void attributeForm::on_value_valueChanged(const QString &arg1)
 {
     this->attributeData->value = arg1.toInt();
     this->parent->updateScore();
+    this->updateScore();
     for(int i = 0; i < this->abilityL->count(); i++)
         this->attributeData->abilityList.at(i)->total->setText(
                 "+ " + QString::number(this->attributeData->value)+ " = " + QString::number(this->attributeData->value+this->attributeData->abilityList.at(i)->value));

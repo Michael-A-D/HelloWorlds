@@ -69,3 +69,27 @@ void charactertab::on_descritpion_textChanged(const QString &arg1)
 {
     this->overview->setText(ui->name->text()+", "+arg1);
 }
+
+void charactertab::on_HP_valueChanged(int arg1)
+{
+    this->characterData->hp = arg1;
+    this->updateScore();
+}
+
+void charactertab::on_HPCost_valueChanged(int arg1)
+{
+    this->characterData->hpCost = arg1;
+    this->updateScore();
+}
+
+void charactertab::on_DMG_valueChanged(int arg1)
+{
+    this->characterData->dmg = arg1;
+    this->updateScore();
+}
+
+void charactertab::on_DMGCost_valueChanged(int arg1)
+{
+    this->characterData->dmgCost = arg1;
+    this->updateScore();
+}

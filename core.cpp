@@ -17,6 +17,10 @@ attributeC::attributeC(){
 characterC::characterC(){
     this->name = "Name";
     this->description = "description";
+    this->hp = 10;
+    this->dmg = 2;
+    this->hpCost = 15;
+    this->dmgCost = 15;
 }
 
 int attributeC::score(){
@@ -38,6 +42,7 @@ int characterC::score(){
     int score = 0;
     for(int i=0; i<this->attributeList.length(); i++)
         score += this->attributeList.at(i)->score();
+    score += hpCost * hp + dmgCost * dmg;
     return score;
 }
 

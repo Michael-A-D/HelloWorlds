@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>316</width>
+    <width>717</width>
     <height>195</height>
    </rect>
   </property>
@@ -20,42 +20,77 @@
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
+   <item row="1" column="5">
+    <widget class="QSpinBox" name="DMG">
+     <property name="value">
+      <number>2</number>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="6">
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>Cost:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>HP:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>Cost:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="2">
     <widget class="QLineEdit" name="name">
      <property name="text">
       <string>Name</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="2">
-    <widget class="QCheckBox" name="npc">
-     <property name="text">
-      <string>NPC</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
+   <item row="3" column="0" colspan="3">
     <widget class="QPushButton" name="pushButton">
      <property name="text">
       <string>Add Atribute</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="3">
-    <widget class="QLabel" name="score">
-     <property name="text">
-      <string>Score: 0</string>
+   <item row="1" column="1">
+    <widget class="QSpinBox" name="HP">
+     <property name="value">
+      <number>10</number>
      </property>
     </widget>
    </item>
-   <item row="0" column="2" colspan="2">
-    <widget class="QLineEdit" name="descritpion">
-     <property name="text">
-      <string>Description</string>
+   <item row="1" column="3">
+    <widget class="QSpinBox" name="HPCost">
+     <property name="value">
+      <number>15</number>
      </property>
     </widget>
    </item>
-   <item row="4" column="0" colspan="4">
+   <item row="1" column="4">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>DMG Mult.:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="7">
+    <widget class="QSpinBox" name="DMGCost">
+     <property name="value">
+      <number>15</number>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="8">
     <widget class="QScrollArea" name="scrollArea">
      <property name="widgetResizable">
       <bool>true</bool>
@@ -65,8 +100,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>296</width>
-        <height>109</height>
+        <width>697</width>
+        <height>76</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -76,6 +111,34 @@
        </sizepolicy>
       </property>
      </widget>
+    </widget>
+   </item>
+   <item row="3" column="7">
+    <widget class="QLabel" name="score">
+     <property name="text">
+      <string>Score: 0</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QCheckBox" name="npc">
+     <property name="text">
+      <string>NPC</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="7">
+    <widget class="QPushButton" name="avatar">
+     <property name="text">
+      <string>Set Avatar</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3" colspan="4">
+    <widget class="QLineEdit" name="descritpion">
+     <property name="text">
+      <string>Description</string>
+     </property>
     </widget>
    </item>
   </layout>

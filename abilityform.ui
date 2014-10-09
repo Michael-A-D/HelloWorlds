@@ -85,7 +85,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Score: 0</string>
+    <string>Score: 180</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
