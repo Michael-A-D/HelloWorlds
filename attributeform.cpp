@@ -11,6 +11,7 @@ attributeForm::attributeForm(QWidget *parent) :
     abilityL->setMargin(0);
     abilityL->setContentsMargins(0,0,0,0);
     ui->ability->setLayout(abilityL);
+    this->ui->deleteButton->setFixedWidth(27);
 }
 
 attributeForm::~attributeForm()
@@ -20,8 +21,13 @@ attributeForm::~attributeForm()
 
 void attributeForm::on_pushButton_clicked()
 {
-    abilityform *ability = new abilityform();
+    abilityform *ability = new abilityform(this);
     ability->setFixedHeight(35);
     abilityL->addWidget(ability);
     this->setFixedHeight(this->height()+35);
+}
+
+void attributeForm::on_deleteButton_clicked()
+{
+    delete this;
 }
