@@ -19,7 +19,7 @@ class charactertab : public QDialog
 
 public:
     explicit charactertab(QWidget *parent = 0);
-    charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *NPCOL, QPushButton *overview, int index, MainWindow *main);
+    charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *NPCOL, QPushButton *overview, int index, MainWindow *main, characterC* characterData);
     ~charactertab();    
     void updateScore();
     void resizeLayout();

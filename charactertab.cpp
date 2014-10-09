@@ -10,7 +10,7 @@ charactertab::charactertab(QWidget *parent) :
     ui->setupUi(this);
 }
 
-charactertab::charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *NPCOL, QPushButton *overview, int index, MainWindow *main) :
+charactertab::charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *NPCOL, QPushButton *overview, int index, MainWindow *main, characterC* characterData) :
     QDialog(parent),
     ui(new Ui::charactertab)
 {
@@ -26,7 +26,7 @@ charactertab::charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *N
     attributeL->setMargin(0);
     attributeL->setContentsMargins(0,0,0,0);
     ui->attribute->setLayout(attributeL);
-    this->characterData = new characterC();
+    this->characterData = characterData;
 }
 
 void charactertab::setActive()
@@ -79,6 +79,7 @@ void charactertab::on_npc_toggled(bool checked)
         this->PCOL->addWidget(this->overview,0, Qt::AlignTop);
     }
     this->main->resizeLayouts();
+    this->characterData->NPC = checked;
 }
 
 void charactertab::on_pushButton_clicked()

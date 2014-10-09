@@ -86,6 +86,7 @@ void attributeForm::on_customBox_toggled(bool checked)
 {
     this->ui->customValue->setEnabled(checked);
     this->computeAndUpdateCost();
+    this->attributeData->isCustom = checked;
 }
 
 void attributeForm::on_value_valueChanged(const QString &arg1)

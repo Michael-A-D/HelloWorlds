@@ -24,6 +24,7 @@ public:
     QList<abilityC*> abilityList;
     int score();
     int calculatedCost();
+    bool isCustom;
     };
 
 class characterC{
@@ -40,6 +41,15 @@ public:
     QList<attributeC*> attributeList;
     int score();
     QString overview();
+    QString fileName;
+};
+
+class worldC{
+public:
+    worldC();
+    QString name;
+    QString description;
+    QList<characterC*> characterList;
 };
 
 

@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QMessageBox>
 #include <QPushButton>
+#include <core.h>
 
 namespace Ui {
 class MainWindow;
@@ -21,7 +22,9 @@ public:
     void setWorldActive();
     void resizeLayouts();
     void setActive(int index);
+    worldC* world;
     QString location;
+    QString locationCharacter;
 
 private slots:
     void on_charactersTab_tabBarClicked(int index);
@@ -31,6 +34,10 @@ private slots:
     void on_name_textChanged(const QString &arg1);
 
     void on_actionAbout_triggered();
+
+    void on_actionSave_as_triggered();
+
+    void on_actionSave_triggered();
 
 private:
     Ui::MainWindow *ui;

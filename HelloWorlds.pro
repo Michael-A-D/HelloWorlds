@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,13 +17,15 @@ SOURCES += main.cpp\
     charactertab.cpp \
     attributeform.cpp \
     abilityform.cpp \
-    core.cpp
+    core.cpp \
+    xml.cpp
 
 HEADERS  += mainwindow.h \
     charactertab.h \
     attributeform.h \
     abilityform.h \
-    core.h
+    core.h \
+    xml.h
 
 FORMS    += mainwindow.ui \
     charactertab.ui \

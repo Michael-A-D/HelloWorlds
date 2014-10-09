@@ -12,6 +12,7 @@ attributeC::attributeC(){
     this->name = "Name";
     this->cost = 0;
     this->value = 0;
+    this->isCustom = false;
 }
 
 characterC::characterC(){
@@ -21,6 +22,13 @@ characterC::characterC(){
     this->dmg = 2;
     this->hpCost = 15;
     this->dmgCost = 15;
+    this->fileName = "";
+    this->NPC = false;
+}
+
+worldC::worldC(){
+    this->name = "Name";
+    this->description = "description";
 }
 
 int attributeC::score(){
