@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <attributeform.h>
+#include <core.h>
 
 namespace Ui {
 class abilityform;
@@ -14,15 +15,22 @@ class abilityform : public QWidget
 
 public:
     explicit abilityform(QWidget *parent = 0);
-    abilityform(attributeForm* parent);
+    abilityform(attributeForm* parent, abilityC* abilityData);
     ~abilityform();
-
+    QLabel* getTotal();
+    Ui::abilityform *ui;
+    void updateTotal();
 private slots:
     void on_pushButton_clicked();
 
+    void on_value_valueChanged(const QString &arg1);
+
+    void on_costBox_valueChanged(const QString &arg1);
+
 private:
-    Ui::abilityform *ui;
+
     attributeForm* parent;
+    abilityC* abilityData;
 };
 
 #endif // ABILITYFORM_H

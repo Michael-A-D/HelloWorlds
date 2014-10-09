@@ -16,12 +16,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     charactertab.cpp \
     attributeform.cpp \
-    abilityform.cpp
+    abilityform.cpp \
+    core.cpp
 
 HEADERS  += mainwindow.h \
     charactertab.h \
     attributeform.h \
-    abilityform.h
+    abilityform.h \
+    core.h
 
 FORMS    += mainwindow.ui \
     charactertab.ui \

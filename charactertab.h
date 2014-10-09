@@ -6,7 +6,8 @@
 #include <QLabel>
 #include <QScrollArea>
 #include <QVBoxLayout>
-#include "mainwindow.h"
+#include <mainwindow.h>
+#include <core.h>
 
 namespace Ui {
 class charactertab;
@@ -19,7 +20,9 @@ class charactertab : public QDialog
 public:
     explicit charactertab(QWidget *parent = 0);
     charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *NPCOL, QLabel *overview, int index, MainWindow *main);
-    ~charactertab();
+    ~charactertab();    
+    void updateScore();
+    characterC* characterData;
 
 private slots:
     void on_name_textChanged(const QString &arg1);

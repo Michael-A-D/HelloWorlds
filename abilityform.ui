@@ -26,12 +26,12 @@
     <string>Ability</string>
    </property>
   </widget>
-  <widget class="QSpinBox" name="spinBox">
+  <widget class="QSpinBox" name="value">
    <property name="geometry">
     <rect>
      <x>337</x>
      <y>9</y>
-     <width>41</width>
+     <width>51</width>
      <height>27</height>
     </rect>
    </property>
@@ -39,7 +39,7 @@
   <widget class="QLabel" name="total">
    <property name="geometry">
     <rect>
-     <x>384</x>
+     <x>394</x>
      <y>13</y>
      <width>71</width>
      <height>20</height>
@@ -52,10 +52,10 @@
   <widget class="QLabel" name="cost">
    <property name="geometry">
     <rect>
-     <x>460</x>
+     <x>470</x>
      <y>13</y>
-     <width>35</width>
-     <height>17</height>
+     <width>41</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
@@ -65,9 +65,9 @@
   <widget class="QSpinBox" name="costBox">
    <property name="geometry">
     <rect>
-     <x>500</x>
+     <x>510</x>
      <y>9</y>
-     <width>48</width>
+     <width>51</width>
      <height>27</height>
     </rect>
    </property>
@@ -80,7 +80,7 @@
     <rect>
      <x>570</x>
      <y>13</y>
-     <width>54</width>
+     <width>91</width>
      <height>17</height>
     </rect>
    </property>

@@ -24,6 +24,7 @@ charactertab::charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *N
     attributeL->setMargin(0);
     attributeL->setContentsMargins(0,0,0,0);
     ui->attribute->setLayout(attributeL);
+    this->characterData = new characterC();
 }
 
 charactertab::~charactertab()
@@ -31,6 +32,10 @@ charactertab::~charactertab()
     delete ui;
     delete this->overview;
     main->decreaseCharacterNumber();
+}
+
+void charactertab::updateScore(){
+    this->ui->score->setText("Score: "+QString::number(this->characterData->score()));
 }
 
 void charactertab::on_name_textChanged(const QString &arg1)
@@ -53,8 +58,9 @@ void charactertab::on_npc_toggled(bool checked)
 
 void charactertab::on_pushButton_clicked()
 {
-    attributeForm *attribute = new attributeForm();
-    //QLabel *attribute = new QLabel(); attribute->setText("toto");
+    attributeC* attributeData = new attributeC();
+    attributeForm *attribute = new attributeForm(this,attributeData);
+    this->characterData->attributeList.insert(this->characterData->attributeList.size(),attributeData);
     attribute->setFixedHeight(100);
     attributeL->addWidget(attribute);
 }

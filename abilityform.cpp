@@ -8,23 +8,49 @@ abilityform::abilityform(QWidget *parent) :
     ui->setupUi(this);
 }
 
-abilityform::abilityform(attributeForm* parent):
+abilityform::abilityform(attributeForm* parent,abilityC* abilityData):
     QWidget(parent),
     ui(new Ui::abilityform)
 {
     ui->setupUi(this);
     this->parent = parent;
+    this->abilityData = abilityData;
 }
 
 abilityform::~abilityform()
 {
     delete ui;
-    parent->setFixedHeight(parent->height()-35);
+    parent->setFixedHeight(parent->height()-40);
 }
 
 
+QLabel* abilityform::getTotal(){
+    return this->ui->total;
+}
 
 void abilityform::on_pushButton_clicked()
 {
-    delete this;
+    this->parent->attributeData->abilityList.removeOne(this->abilityData);
+    this->parent->updateScore();
+    this->parent->parent->updateScore();
+    delete this;    
+}
+void abilityform::updateTotal()
+{
+    this->ui->total->setText("+ " + QString::number(this->parent->attributeData->value)+ " = " + QString::number(this->parent->attributeData->value+this->ui->value->text().toInt()));
+}
+
+void abilityform::on_value_valueChanged(const QString &arg1)
+{
+    this->abilityData->updateValue(arg1.toInt());
+    this->ui->score->setText("Score: "+ QString::number(this->abilityData->score));
+    this->parent->updateScore();
+    this->parent->parent->updateScore();
+    this->updateTotal();
+}
+
+void abilityform::on_costBox_valueChanged(const QString &arg1)
+{
+    this->abilityData->cost = arg1.toInt();
+    this->parent->computeAndUpdateCost();
 }
