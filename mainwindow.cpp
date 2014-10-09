@@ -40,9 +40,12 @@ void MainWindow::setWorldActive()
 void MainWindow::resizeLayouts()
 {
     this->ui->PCOC->setFixedHeight(PCOL->count()*20);
-    int count=NPCOL->count();
     this->ui->NPCOC->setFixedHeight(NPCOL->count()*20);
     this->ui->PCOC->setFixedHeight(PCOL->count()*20);
+}
+void MainWindow::setActive(int index)
+{
+    this->ui->charactersTab->setCurrentIndex(index);
 }
 
 void MainWindow::on_charactersTab_tabBarClicked(int index)
@@ -50,9 +53,10 @@ void MainWindow::on_charactersTab_tabBarClicked(int index)
     if (index==characterNumber+1)
     {
         characterNumber++;
-        QLabel *overview = new QLabel();
+        QPushButton *overview = new QPushButton();
         PCOL->addWidget(overview,0, Qt::AlignTop);
         overview->setText("Name, description");
+        overview->setFlat(true);
         this->resizeLayouts();
         ui->charactersTab->insertTab(characterNumber,new charactertab(ui->charactersTab,PCOL,NPCOL,overview,index,this),"Name");
         ui->charactersTab->setCurrentIndex(characterNumber);
@@ -69,4 +73,12 @@ void MainWindow::on_charactersTab_tabCloseRequested(int index)
 void MainWindow::on_name_textChanged(const QString &arg1)
 {
     this->setWindowTitle("Hello, "+arg1+"!");
+}
+
+void MainWindow::on_actionAbout_triggered()
+{
+    QMessageBox* message = new QMessageBox();
+    message->setText(tr("This is Hello, WorldS! alpha 1, released on 10/9/14.\n\n This software uses the GNU Licence: it is free to use and share.\n\n If you find a bug, please contact me on GitHub:\n https://github.com/Michael-A-D/HelloWorlds"));
+    message->exec();
+    delete message;
 }

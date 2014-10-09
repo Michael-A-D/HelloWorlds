@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QVBoxLayout>
+#include <QMessageBox>
+#include <QPushButton>
 
 namespace Ui {
 class MainWindow;
@@ -18,6 +20,7 @@ public:
     void decreaseCharacterNumber();
     void setWorldActive();
     void resizeLayouts();
+    void setActive(int index);
     QString location;
 
 private slots:
@@ -26,6 +29,8 @@ private slots:
     void on_charactersTab_tabCloseRequested(int index);
 
     void on_name_textChanged(const QString &arg1);
+
+    void on_actionAbout_triggered();
 
 private:
     Ui::MainWindow *ui;

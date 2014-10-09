@@ -19,7 +19,7 @@ class charactertab : public QDialog
 
 public:
     explicit charactertab(QWidget *parent = 0);
-    charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *NPCOL, QLabel *overview, int index, MainWindow *main);
+    charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *NPCOL, QPushButton *overview, int index, MainWindow *main);
     ~charactertab();    
     void updateScore();
     void resizeLayout();
@@ -44,10 +44,12 @@ private slots:
 
     void on_setAvatar_clicked();
 
+    void setActive();
+
 private:
     Ui::charactertab *ui;
     QTabWidget* parentTab;
-    QLabel* overview;
+    QPushButton* overview;
     QVBoxLayout *PCOL;
     QVBoxLayout *NPCOL;
     int index;
