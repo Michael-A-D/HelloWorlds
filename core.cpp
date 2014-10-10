@@ -35,7 +35,7 @@ int attributeC::score(){
     int score = 0;
     for(int i=0; i<this->abilityList.length(); i++)
         score += this->abilityList.at(i)->score;
-    score += this->value * this->cost;
+    score += this->value * (this->value + 1) / 2 * this->cost;
     return score;
 }
 

@@ -40,10 +40,15 @@ void abilityform::updateTotal()
     this->ui->total->setText("+ " + QString::number(this->parent->attributeData->value)+ " = " + QString::number(this->parent->attributeData->value+this->ui->value->text().toInt()));
 }
 
+void abilityform::updateScore()
+{
+    this->ui->score->setText("Score: "+ QString::number(this->abilityData->score));
+}
+
 void abilityform::on_value_valueChanged(const QString &arg1)
 {
     this->abilityData->updateValue(arg1.toInt());
-    this->ui->score->setText("Score: "+ QString::number(this->abilityData->score));
+    this->updateScore();
     this->parent->updateScore();
     this->parent->parent->updateScore();
     this->updateTotal();
@@ -52,5 +57,9 @@ void abilityform::on_value_valueChanged(const QString &arg1)
 void abilityform::on_costBox_valueChanged(const QString &arg1)
 {
     this->abilityData->cost = arg1.toInt();
+    this->abilityData->updateValue(this->abilityData->value);
     this->parent->computeAndUpdateCost();
+    this->updateScore();
+    this->parent->updateScore();
+    this->parent->parent->updateScore();
 }

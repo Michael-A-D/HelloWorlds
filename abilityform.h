@@ -20,6 +20,7 @@ public:
     QLabel* getTotal();
     Ui::abilityform *ui;
     void updateTotal();
+    void updateScore();
 private slots:
     void on_pushButton_clicked();
 
