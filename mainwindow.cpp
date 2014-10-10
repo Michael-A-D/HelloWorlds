@@ -84,7 +84,7 @@ void MainWindow::on_name_textChanged(const QString &arg1)
 void MainWindow::on_actionAbout_triggered()
 {
     QMessageBox* message = new QMessageBox();
-    message->setText(tr("This is Hello, WorldS! alpha 1, released on 10/9/14.\n\n This software uses the GNU Licence: it is free to use and share.\n\n If you find a bug, please contact me on GitHub:\n https://github.com/Michael-A-D/HelloWorlds"));
+    message->setText(tr("This is Hello, WorldS! alpha 1, released on 10/9/14.\n\n This software uses the GNU Licence: it is free to use and share.\n\n If you find a bug, please report on GitHub:\n https://github.com/Michael-A-D/HelloWorlds/issues"));
     message->exec();
     delete message;
 }
