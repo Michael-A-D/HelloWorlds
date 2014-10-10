@@ -42,9 +42,9 @@ void MainWindow::setWorldActive()
 
 void MainWindow::resizeLayouts()
 {
-    this->ui->PCOC->setFixedHeight(PCOL->count()*20);
-    this->ui->NPCOC->setFixedHeight(NPCOL->count()*20);
-    this->ui->PCOC->setFixedHeight(PCOL->count()*20);
+    this->ui->PCOC->setFixedHeight(PCOL->count()*25);
+    this->ui->NPCOC->setFixedHeight(NPCOL->count()*25);
+    this->ui->PCOC->setFixedHeight(PCOL->count()*25);
 }
 void MainWindow::setActive(int index)
 {
@@ -57,6 +57,7 @@ void MainWindow::on_charactersTab_tabBarClicked(int index)
     {
         characterNumber++;
         QPushButton *overview = new QPushButton();
+        overview->setFixedHeight(20);
         PCOL->addWidget(overview,0, Qt::AlignTop);
         overview->setText("Name, description");
         overview->setFlat(true);
