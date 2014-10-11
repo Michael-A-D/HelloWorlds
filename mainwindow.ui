@@ -125,6 +125,7 @@
     </property>
     <addaction name="actionNew_World"/>
     <addaction name="actionSave_World_As"/>
+    <addaction name="separator"/>
     <addaction name="actionLoad_World"/>
    </widget>
    <widget class="QMenu" name="menuCharacter">
@@ -133,6 +134,7 @@
     </property>
     <addaction name="actionSave"/>
     <addaction name="actionSave_as"/>
+    <addaction name="separator"/>
     <addaction name="actionLoad"/>
    </widget>
    <widget class="QMenu" name="menu">

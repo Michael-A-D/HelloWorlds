@@ -66,6 +66,7 @@ void charactertab::on_name_textChanged(const QString &arg1)
 {
     this->parentTab->setTabText(index,arg1);
     this->overview->setText(arg1+", "+ui->descritpion->text());
+    this->characterData->name = arg1;
 }
 
 void charactertab::on_npc_toggled(bool checked)
@@ -95,6 +96,7 @@ void charactertab::on_pushButton_clicked()
 void charactertab::on_descritpion_textChanged(const QString &arg1)
 {
     this->overview->setText(ui->name->text()+", "+arg1);
+    this->characterData->description = arg1;
 }
 
 void charactertab::on_HP_valueChanged(int arg1)

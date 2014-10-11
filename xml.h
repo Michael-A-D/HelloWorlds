@@ -2,6 +2,7 @@
 #define XML_H
 #include <core.h>
 #include <QtXml>
+#include <QObject>
 
 class characterLoader
 {

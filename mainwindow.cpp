@@ -133,3 +133,12 @@ void MainWindow::on_actionSave_triggered()
         delete message;
     }
 }
+
+void MainWindow::on_actionLoad_triggered()
+{
+    QString fileName = QFileDialog::getOpenFileName(this,tr("Please select character file"),this->locationCharacter,tr("XML (*.xml)"));
+    characterLoader* loader = new characterLoader();
+    characterC* characterData = new characterC();
+    loader->load(characterData,fileName);
+
+}
