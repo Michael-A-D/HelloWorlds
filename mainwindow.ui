@@ -136,6 +136,8 @@
     <addaction name="actionSave_as"/>
     <addaction name="separator"/>
     <addaction name="actionLoad"/>
+    <addaction name="separator"/>
+    <addaction name="actionExport"/>
    </widget>
    <widget class="QMenu" name="menu">
     <property name="title">
@@ -206,6 +208,11 @@
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="actionExport">
+   <property name="text">
+    <string>Export</string>
    </property>
   </action>
  </widget>

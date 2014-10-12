@@ -1,0 +1,65 @@
+#include "latex.h"
+#include "QFile"
+#include "QTextStream"
+#include "QString"
+#include "QObject"
+#include "stdio.h"
+
+latex::latex()
+{
+}
+
+void latex::write(characterC* characterData, QString fileName)
+{
+    QFile* file = new QFile(fileName);
+    file->open(QIODevice::WriteOnly);
+    QTextStream* out = new QTextStream(file);
+    *out << QObject::tr("\\documentclass[a4paper]{article}\\usepackage{tabularx}\\usepackage{graphicx}\\usepackage{multirow}\\usepackage{titlesec}\\usepackage{multicol}\\usepackage[inner=0.5cm,outer=1cm]{geometry}\\newcommand{\\attribute}[2]{\\section*{#1: #2}}\\newcommand{\\ability}[4]{{\\Large{\\bf #1:} #2 + #3 = #4\\\\}}\\newcommand{\\general}[5]{\\vspace*{-4cm}\\section*{General}\\vspace*{-1.5cm}\\begin{tabular}{p{12cm}p{8cm}} & \\multirow{4}{*}{\\includegraphics[width=8cm]{#5}}\\\\\\\\\\\\\\\\\\Huge{\\bf #1}\\\\\\LARGE{#2}\\\\ \\\\\\LARGE{{\\bf HP:} \\ \\ \\ \\ \\ / #3}\\\\ \\\\\\LARGE{{\\bf DMG:} #4x}\\end{tabular}}\\titleformat*{\\section}{\\Huge\\bfseries}\\begin{document}");
+    QString latexDelimiter = QObject::tr("}{");
+    QString latexLine = QObject::tr("}\n");
+    QString beginCol = QObject::tr("\\begin{multicols}{2}\\setlength{\\parindent}{0em}\n");
+    QString endCol = QObject::tr("\\end{multicols}\n");
+    *out <<
+            (
+                QObject::tr("\\general{") +
+                characterData->name +
+                latexDelimiter +
+                characterData->description +
+                latexDelimiter +
+                QString::number(characterData->hp) +
+                latexDelimiter +
+                QString::number(characterData->dmg) +
+                latexDelimiter +
+                characterData->avatar +
+                latexLine
+            );
+    foreach(attributeC* attribute,characterData->attributeList)
+    {
+        *out <<
+                (QObject::tr("\\attribute{") +
+                 attribute->name +
+                 latexDelimiter +
+                 QString::number(attribute->value) +
+                 latexLine +
+                 beginCol
+                 );
+
+        foreach(abilityC* ability,attribute->abilityList)
+        {
+            *out <<
+                    (QObject::tr("\\ability{") +
+                     ability->name +
+                     latexDelimiter +
+                     QString::number(ability->value) +
+                     latexDelimiter +
+                     QString::number(attribute->value) +
+                     latexDelimiter +
+                     QString::number(ability->value + attribute->value) +
+                     latexLine
+                     );
+        }
+        *out << endCol;
+    }
+    *out << QObject::tr("\\end{document}");
+    file->close();
+}

@@ -51,7 +51,7 @@ int characterC::score(){
     int score = 0;
     for(int i=0; i<this->attributeList.length(); i++)
         score += this->attributeList.at(i)->score();
-    score += hpCost * hp + dmgCost * dmg;
+    score += hpCost * hp* (hp + 1) / 2 + dmgCost * dmg * (dmg + 1) / 2;
     return score;
 }
 

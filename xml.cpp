@@ -1,5 +1,4 @@
 #include "xml.h"
-#include "iostream"
 #include "QDomElement"
 
 characterLoader::characterLoader()

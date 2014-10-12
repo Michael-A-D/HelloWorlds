@@ -3,6 +3,7 @@
 #include "charactertab.h"
 #include "xml.h"
 #include "QFileDialog"
+#include "latex.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -246,4 +247,11 @@ void MainWindow::on_actionNew_World_triggered()
     }
     writer->write(this->world,this->world->fileName);
     delete writer;
+}
+
+void MainWindow::on_actionExport_triggered()
+{
+    QString fileName = QFileDialog::getOpenFileName(this,tr("Please select LaTeX file"),this->locationCharacter,tr("LaTeX (*.tex)"));
+    latex* writer = new  latex();
+    writer->write(this->world->characterList.at(this->ui->charactersTab->currentIndex()-1),fileName);
 }

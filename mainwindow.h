@@ -49,6 +49,8 @@ private slots:
 
     void on_actionNew_World_triggered();
 
+    void on_actionExport_triggered();
+
 private:
     Ui::MainWindow *ui;
     int characterNumber;
