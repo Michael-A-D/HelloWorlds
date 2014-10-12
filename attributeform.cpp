@@ -61,6 +61,7 @@ void attributeForm::updateScore(){
 
 void attributeForm::loadFromData(){
     this->ui->lineEdit->setText(this->attributeData->name);
+    this->ui->value->setValue(this->attributeData->value);
     this->ui->customBox->setChecked(this->attributeData->isCustom);
     if (this->attributeData->isCustom)
         this->ui->customValue->setValue(this->attributeData->cost);
