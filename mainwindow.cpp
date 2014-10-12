@@ -251,7 +251,15 @@ void MainWindow::on_actionNew_World_triggered()
 
 void MainWindow::on_actionExport_triggered()
 {
-    QString fileName = QFileDialog::getOpenFileName(this,tr("Please select LaTeX file"),this->locationCharacter,tr("LaTeX (*.tex)"));
-    latex* writer = new  latex();
-    writer->write(this->world->characterList.at(this->ui->charactersTab->currentIndex()-1),fileName);
+    if ((this->ui->charactersTab->currentIndex() !=0) && (this->ui->charactersTab->currentIndex() != this->characterNumber + 1)){
+        QString fileName = QFileDialog::getOpenFileName(this,tr("Please select PDF file"),this->locationCharacter,tr("PDF (*.pdf)"));
+        latex* writer = new  latex();
+        writer->write(this->world->characterList.at(this->ui->charactersTab->currentIndex()-1),fileName); }
+    else
+    {
+        QMessageBox* message = new QMessageBox();
+        message->setText(tr("Please select a character tab."));
+        message->exec();
+        delete message;
+    }
 }
