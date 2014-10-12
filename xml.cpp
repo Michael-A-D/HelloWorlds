@@ -151,6 +151,8 @@ bool worldLoader::load(worldC *world, QString fileName)
     QFile* file = new QFile(fileName);
     file->open(QIODevice::ReadOnly);
     this->reader->setDevice(file);
+    QStringRef* fileNameReg = new QStringRef(&fileName);
+    QString location = fileName.section("/",0,fileNameReg->count("/")-1);
 
     while (!this->reader->atEnd())
     {
@@ -175,7 +177,7 @@ bool worldLoader::load(worldC *world, QString fileName)
                     if (attr.name() == "filename")
                     {
                         characterLoader* loader = new characterLoader();
-                        loader->load(characterData,attr.value().toString());
+                        loader->load(characterData,location + QObject::tr("/") + attr.value().toString());
                         delete loader;
                         world->characterList.push_back(characterData);
                     }
@@ -210,7 +212,7 @@ void worldWriter::write(worldC *world, QString fileName){
         characterWriter* writerC = new characterWriter();
         QString characterFileName = fileName + QString::number(i);
         writerC->write(world->characterList.at(i),characterFileName);
-        this->writer->writeAttribute("filename",characterFileName);
+        this->writer->writeAttribute("filename",characterFileName.section("/",-1));
         delete writerC;
         this->writer->writeEndElement();
     }
