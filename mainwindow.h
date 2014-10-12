@@ -25,6 +25,8 @@ public:
     worldC* world;
     QString location;
     QString locationCharacter;
+    QString locationWorld;
+    void updateNames();
 
 private slots:
     void on_charactersTab_tabBarClicked(int index);
@@ -40,6 +42,12 @@ private slots:
     void on_actionSave_triggered();
 
     void on_actionLoad_triggered();
+
+    void on_actionSave_World_As_triggered();
+
+    void on_actionLoad_World_triggered();
+
+    void on_actionNew_World_triggered();
 
 private:
     Ui::MainWindow *ui;

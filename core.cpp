@@ -29,6 +29,7 @@ characterC::characterC(){
 worldC::worldC(){
     this->name = "Name";
     this->description = "description";
+    this->fileName="";
 }
 
 int attributeC::score(){
@@ -57,6 +58,10 @@ int characterC::score(){
 void abilityC::updateValue(int newValue){
     this->score = newValue * (newValue +1) / 2 * this->cost;
     this->value = newValue;
+}
+
+void abilityC::updateTotal(const QString newTotal){
+    this->total->setText(newTotal);
 }
 
 core::core()

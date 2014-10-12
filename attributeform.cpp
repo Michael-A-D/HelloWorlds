@@ -54,9 +54,29 @@ void attributeForm::on_pushButton_clicked()
     this->parent->updateScore();
     this->parent->resizeLayout();
 }
+
 void attributeForm::updateScore(){
     this->ui->score->setText("Score: "+QString::number(this->attributeData->score()));
 }
+
+void attributeForm::loadFromData(){
+    this->ui->lineEdit->setText(this->attributeData->name);
+    this->ui->customBox->setChecked(this->attributeData->isCustom);
+    if (this->attributeData->isCustom)
+        this->ui->customValue->setValue(this->attributeData->cost);
+    foreach (abilityC* ability, this->attributeData->abilityList) {
+        abilityform* abilityForm = new abilityform(this,ability);
+        ability->total = abilityForm->getTotal();
+        abilityForm->updateTotal();
+        abilityForm->setFixedHeight(35);
+        abilityL->addWidget(abilityForm);
+        this->setFixedHeight(this->height()+40);
+        abilityForm->loadFromData();
+    }
+    this->computeAndUpdateCost();
+    this->updateScore();
+}
+
 void attributeForm::computeAndUpdateCost(){
     if (this->ui->customBox->checkState() == Qt::Unchecked)
     {
@@ -95,8 +115,9 @@ void attributeForm::on_value_valueChanged(const QString &arg1)
     this->parent->updateScore();
     this->updateScore();
     for(int i = 0; i < this->abilityL->count(); i++)
-        this->attributeData->abilityList.at(i)->total->setText(
-                "+ " + QString::number(this->attributeData->value)+ " = " + QString::number(this->attributeData->value+this->attributeData->abilityList.at(i)->value));
+        this->attributeData->abilityList.at(i)->updateTotal("+ " + QString::number(this->attributeData->value)+ " = " +
+                                                         QString::number(this->attributeData->value+this->attributeData->abilityList.at(i)->value)
+                );
 }
 
 void attributeForm::on_customValue_valueChanged(const QString &arg1)
@@ -104,4 +125,9 @@ void attributeForm::on_customValue_valueChanged(const QString &arg1)
     this->attributeData->cost = arg1.toInt();
     this->updateCost();
     this->parent->updateScore();
+}
+
+void attributeForm::on_lineEdit_textChanged(const QString &arg1)
+{
+    this->attributeData->name = arg1;
 }

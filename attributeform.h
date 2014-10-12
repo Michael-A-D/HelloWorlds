@@ -21,6 +21,7 @@ public:
     attributeC* attributeData;
     charactertab* parent;
     void updateScore();
+    void loadFromData();
     void computeAndUpdateCost();
 
 private slots:
@@ -33,6 +34,8 @@ private slots:
     void on_value_valueChanged(const QString &arg1);
 
     void on_customValue_valueChanged(const QString &arg1);
+
+    void on_lineEdit_textChanged(const QString &arg1);
 
 private:
     Ui::attributeForm *ui;

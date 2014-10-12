@@ -13,6 +13,7 @@ public:
     int score;
     QLabel* total;
     void updateValue(int newValue);
+    void updateTotal(const QString newTotal);
     };
 
 class attributeC{
@@ -50,6 +51,7 @@ public:
     QString name;
     QString description;
     QList<characterC*> characterList;
+    QString fileName;
 };
 
 

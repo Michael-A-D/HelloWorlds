@@ -9,7 +9,7 @@ class characterLoader
 public:
     characterLoader();
     ~characterLoader();
-    void load(characterC* character, QString fileName);
+    bool load(characterC* character, QString fileName);
 private:
     QXmlStreamReader* reader;
 };
@@ -23,5 +23,26 @@ public:
 private:
     QXmlStreamWriter* writer;
 };
+
+class worldLoader
+{
+public:
+    worldLoader();
+    ~worldLoader();
+    bool load(worldC* character, QString fileName);
+private:
+    QXmlStreamReader* reader;
+};
+
+class worldWriter
+{
+public:
+    worldWriter();
+    ~worldWriter();
+    void write(worldC* world, QString fileName);
+private:
+    QXmlStreamWriter* writer;
+};
+
 
 #endif // XML_H

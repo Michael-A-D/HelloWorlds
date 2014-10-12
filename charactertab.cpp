@@ -10,12 +10,12 @@ charactertab::charactertab(QWidget *parent) :
     ui->setupUi(this);
 }
 
-charactertab::charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *NPCOL, QPushButton *overview, int index, MainWindow *main, characterC* characterData) :
+charactertab::charactertab(MainWindow *parent, QVBoxLayout *PCOL, QVBoxLayout *NPCOL, QPushButton *overview, int index, MainWindow *main, characterC* characterData) :
     QDialog(parent),
     ui(new Ui::charactertab)
 {
     ui->setupUi(this);
-    this->parentTab = parent;
+    this->parent = parent;
     this->PCOL = PCOL;
     this->NPCOL = NPCOL;
     this->overview = overview;
@@ -64,9 +64,28 @@ void charactertab::updateScore()
 
 void charactertab::on_name_textChanged(const QString &arg1)
 {
-    this->parentTab->setTabText(index,arg1);
     this->overview->setText(arg1+", "+ui->descritpion->text());
     this->characterData->name = arg1;
+    this->parent->updateNames();
+}
+
+void charactertab::loadFromData(){
+    this->ui->name->setText(this->characterData->name);
+    this->ui->descritpion->setText(this->characterData->description);
+    this->ui->HP->setValue(this->characterData->hp);
+    this->ui->HPCost->setValue(this->characterData->hpCost);
+    this->ui->DMG->setValue(this->characterData->dmg);
+    this->ui->DMGCost->setValue(this->characterData->dmgCost);
+    this->ui->npc->setChecked(this->characterData->NPC);
+    this->ui->avatar->setText(this->characterData->avatar.section("/",-1));
+    foreach(attributeC* attribute, this->characterData->attributeList){
+        attributeForm* form = new attributeForm(this,attribute);
+        form->setFixedHeight(100);
+        form->loadFromData();
+        attributeL->addWidget(form);
+    }
+    this->resizeLayout();
+    this->updateScore();
 }
 
 void charactertab::on_npc_toggled(bool checked)

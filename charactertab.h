@@ -19,10 +19,11 @@ class charactertab : public QDialog
 
 public:
     explicit charactertab(QWidget *parent = 0);
-    charactertab(QTabWidget *parent, QVBoxLayout *PCOL, QVBoxLayout *NPCOL, QPushButton *overview, int index, MainWindow *main, characterC* characterData);
+    charactertab(MainWindow *parent, QVBoxLayout *PCOL, QVBoxLayout *NPCOL, QPushButton *overview, int index, MainWindow *main, characterC* characterData);
     ~charactertab();    
     void updateScore();
     void resizeLayout();
+    void loadFromData();
     characterC* characterData;
 
 private slots:
@@ -48,7 +49,7 @@ private slots:
 
 private:
     Ui::charactertab *ui;
-    QTabWidget* parentTab;
+    MainWindow* parent;
     QPushButton* overview;
     QVBoxLayout *PCOL;
     QVBoxLayout *NPCOL;
