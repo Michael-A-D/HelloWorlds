@@ -66,6 +66,6 @@ void latex::write(characterC* characterData, QString fileName)
     }
     *out << QObject::tr("\\end{document}");
     file->close();
-    QString command = QObject::tr("cd ") + fileLocation + QObject::tr(";pdflatex ") + texfileName;
+    QString command = QObject::tr("cd ") + fileLocation + QObject::tr(";pdflatex -interaction=nonstopmode -halt-on-error ") + texfileName;
     system(command.toUtf8().constData());
 }
