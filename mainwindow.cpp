@@ -24,6 +24,8 @@ MainWindow::MainWindow(QWidget *parent) :
     this->world = new worldC();
     this->location = "/";
     this->locationCharacter = "/";
+    this->ui->charactersTab->tabBar()->tabButton(0,QTabBar::RightSide)->resize(0,0);
+    this->ui->charactersTab->tabBar()->tabButton(1,QTabBar::RightSide)->resize(0,0);
 }
 
 MainWindow::~MainWindow()
