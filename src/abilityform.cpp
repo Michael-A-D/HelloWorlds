@@ -54,11 +54,11 @@ void abilityform::loadFromData()
 
 void abilityform::on_value_valueChanged(const QString &arg1)
 {
-    this->abilityData->updateValue(arg1.toInt());
-    this->updateScore();
-    this->parent->updateScore();
-    this->parent->parent->updateScore();
-    this->updateTotal();
+	this->abilityData->updateValue(arg1.toInt());
+	this->updateScore();
+	this->parent->updateScore();
+	this->parent->parent->updateScore();
+	this->updateTotal();
 }
 
 void abilityform::on_costBox_valueChanged(const QString &arg1)
