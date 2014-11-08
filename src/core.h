@@ -7,6 +7,7 @@
 class abilityC{
 public:
     abilityC();
+    abilityC(abilityC *);
     QString name;
     int cost;
     int value;
@@ -19,6 +20,7 @@ public:
 class attributeC{
 public:
     attributeC();
+    attributeC(attributeC *);
     QString name;
     int cost;
     int value;

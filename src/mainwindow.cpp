@@ -77,10 +77,12 @@ void MainWindow::on_charactersTab_tabBarClicked(int index)
             characterData  = new characterC();
         else
             characterData = new characterC(this->world->characterList.at(0));
-        ui->charactersTab->insertTab(characterNumber,new charactertab(this,PCOL,NPCOL,overview,index,this,characterData),"Name");
+        characterNumber++;
+        charactertab *tab = new charactertab(this,PCOL,NPCOL,overview,index,this,characterData);
+        ui->charactersTab->insertTab(characterNumber,tab,"Name");
         ui->charactersTab->setCurrentIndex(characterNumber);
         this->world->characterList.push_back(characterData);
-        characterNumber++;
+        tab->loadFromData();
     }
 }
 
