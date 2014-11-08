@@ -64,17 +64,21 @@ void MainWindow::on_charactersTab_tabBarClicked(int index)
 {
     if (index==characterNumber+1)
     {
-        characterNumber++;
         QPushButton *overview = new QPushButton();
+        characterC* characterData ;
         overview->setFixedHeight(20);
         PCOL->addWidget(overview,0, Qt::AlignTop);
         overview->setText("Name, description");
         overview->setFlat(true);
         this->resizeLayouts();
-        characterC* characterData = new characterC();
+        if (characterNumber == 0)
+            characterData  = new characterC();
+        else
+            characterData = new characterC(this->world->characterList.at(0));
         ui->charactersTab->insertTab(characterNumber,new charactertab(this,PCOL,NPCOL,overview,index,this,characterData),"Name");
         ui->charactersTab->setCurrentIndex(characterNumber);
         this->world->characterList.push_back(characterData);
+        characterNumber++;
     }
 }
 

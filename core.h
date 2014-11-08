@@ -31,6 +31,7 @@ public:
 class characterC{
 public:
     characterC();
+    characterC(characterC *);
     QString name;
     QString description;
     bool NPC;

@@ -26,6 +26,17 @@ characterC::characterC(){
     this->NPC = false;
 }
 
+characterC::characterC(characterC *from){
+    this->name = "Name";
+    this->description = "description";
+    this->hp = 10;
+    this->dmg = 2;
+    this->hpCost = 15;
+    this->dmgCost = 15;
+    this->fileName = "";
+    this->NPC = false;
+}
+
 worldC::worldC(){
     this->name = "Name";
     this->description = "description";
