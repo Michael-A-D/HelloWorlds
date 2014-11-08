@@ -62,10 +62,10 @@ void attributeForm::updateScore(){
 void attributeForm::loadFromData(){
     this->ui->lineEdit->setText(this->attributeData->name);
     this->ui->value->setValue(this->attributeData->value);
+    this->ui->customValue->setValue(this->attributeData->cost);
     this->ui->customBox->setChecked(this->attributeData->isCustom);
-    if (this->attributeData->isCustom)
-        this->ui->customValue->setValue(this->attributeData->cost);
-    foreach (abilityC* ability, this->attributeData->abilityList) {
+    foreach (abilityC* ability, this->attributeData->abilityList)
+    {
         abilityform* abilityForm = new abilityform(this,ability);
         ability->total = abilityForm->getTotal();
         abilityForm->updateTotal();
