@@ -1,0 +1,55 @@
+\documentclass[a4paper]{article}\pagenumbering{gobble}\usepackage[utf8]{inputenc}
+\usepackage{tabularx}\usepackage{graphicx}\usepackage{multirow}\usepackage{titlesec}\usepackage{multicol}\usepackage[inner=0.5cm,outer=1cm,bottom=1cm]{geometry}\newcommand{\attribute}[2]{\section*{#1: #2}}\newcommand{\ability}[4]{{\Large{\bf #1:} #2 + #3 = #4\\}}\newcommand{\general}[5]{\vspace*{-4cm}\vspace{0.5cm}\begin{tabular}{l|p{4cm}|p{11cm}|}\cline{2-3}\multirow{4}{*}{\includegraphics[height=4cm]{#5}} &&\\&\LARGE{\bf #1}&\LARGE{\bf Inventaire}\\&\LARGE{#2} &\\&& \\&\LARGE{{\bf HP:} \ \ \ \ \ / #3}&\\&\LARGE{{\bf DMG:} #4x}&\\\cline{2-3}\end{tabular}\\\\\setlength\extrarowheight{10pt}\begin{tabularx}{\textwidth}{|l|X|X|X|X|X|X|X|X|X|X|}\hline\LARGE{\bf{Etats}}&\bf{\ \ \ 0}&\bf{\ \ \ 1}&\bf{\ \ \ 2}&\bf{\ \ \ 3}&\bf{\ \ \ 4}&\bf{\ \ \ 5}&\bf{\ \ \ 6}&\bf{\ \ \ 7}&\bf{\ \ \ 8}&\bf{\ \ \ 9} \\\hline\LARGE{\bf{Popularité}}&&&&&&&&&&\\\hline\LARGE{\bf{Soupçons}}&&&&&&&&&&\\\hline\LARGE{\bf{Maladie}}&&&&&&&&&&\\\hline\end{tabularx}}\titleformat*{\section}{\Huge\bfseries}\begin{document}
+\general{Finn Jamiesson}{Capitaine du navire}{99}{5}{/users/armand/Dropbox/HelloWorlds/Pirates/captain.jpg}
+\attribute{Intelligence}{30}
+\begin{multicols}{2}
+\setlength{\parindent}{0em}
+\ability{Navigation}{25}{30}{55}
+\ability{Stratégie navale}{55}{30}{85}
+\ability{Artillerie}{5}{30}{35}
+\ability{Mèdecine}{5}{30}{35}
+\ability{Ingénierie}{10}{30}{40}
+\ability{Ficelles du métier}{45}{30}{75}
+\ability{Culture générale}{15}{30}{45}
+\ability{Survie}{0}{30}{30}
+\end{multicols}
+\attribute{Constitution}{40}
+\begin{multicols}{2}
+\setlength{\parindent}{0em}
+\ability{Foie}{35}{40}{75}
+\ability{Vitamine C}{35}{40}{75}
+\ability{Athlétisme}{30}{40}{70}
+\ability{Résistance}{30}{40}{70}
+\ability{Guérison}{0}{40}{40}
+\end{multicols}
+\attribute{Agilité}{45}
+\begin{multicols}{2}
+\setlength{\parindent}{0em}
+\ability{Armes blanches}{35}{45}{80}
+\ability{Arme à feu}{15}{45}{60}
+\ability{Parade}{25}{45}{70}
+\ability{Pied marin}{65}{45}{110}
+\ability{Acrobaties}{20}{45}{65}
+\ability{Lancer}{10}{45}{55}
+\end{multicols}
+\attribute{Charisme}{45}
+\begin{multicols}{2}
+\setlength{\parindent}{0em}
+\ability{Bluff}{40}{45}{85}
+\ability{Commandement}{70}{45}{115}
+\ability{Negociation}{15}{45}{60}
+\ability{Panache}{30}{45}{75}
+\ability{Intimidation}{30}{45}{75}
+\ability{Linguistique}{5}{45}{50}
+\ability{Séduction}{10}{45}{55}
+\end{multicols}
+\attribute{Présence}{35}
+\begin{multicols}{2}
+\setlength{\parindent}{0em}
+\ability{Vigilance}{35}{35}{70}
+\ability{Psychologie}{40}{35}{75}
+\ability{Recherche}{20}{35}{55}
+\ability{Dissimulation}{5}{35}{40}
+\ability{Chance}{65}{35}{100}
+\end{multicols}
+\end{document}
